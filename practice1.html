@@ -25,7 +25,21 @@
   </head>
   <body>
     <h1 id="header">JavaScript In The Web</h1>
+    <button type="button" name="button" onclick="toggleDisplay()">
+      Toggle Display
+    </button>
 
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+      function toggleDisplay() {
+        let header = document.getElementById('header');
+
+        //console.log(header);
+        if (header.style.visibility == 'hidden') {
+          header.style.visibility = 'visible';
+        } else {
+          header.style.visibility = 'hidden';
+        }
+      }
+    </script>
   </body>
 </html>
