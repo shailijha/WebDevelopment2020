@@ -24,21 +24,36 @@
     </style>
   </head>
   <body>
-    <h1 id="header">JavaScript In The Web</h1>
+    <h1>JavaScript In The Web!</h1>
+    <h1 class="theme">JavaScript In The Web!!</h1>
+    <h1 class="theme">JavaScript In The Web!!!</h1>
+
+    <h2 class="warning">JavaScript!</h2>
+    <h2 id="footer-header">JavaScript!!</h2>
+
     <button type="button" name="button" onclick="toggleDisplay()">
       Toggle Display
     </button>
 
     <script type="text/javascript">
-      function toggleDisplay() {
-        let header = document.getElementById('header');
+      let isVisible = true;
 
-        //console.log(header);
-        if (header.style.visibility == 'hidden') {
-          header.style.visibility = 'visible';
-        } else {
-          header.style.visibility = 'hidden';
-        }
+      let elements = document.querySelectorAll('.theme, h2');
+
+      //console.log(typeof elements);
+      console.log(elements);
+      elements = Array.from(elements);
+      console.log(elements);
+
+      function toggleDisplay() {
+        isVisible = !isVisible;
+
+        let visibility = isVisible ? 'visible' : 'hidden';
+
+        elements.forEach((element, idx) => {
+          //console.log(element, idx);
+          element.style.visibility = visibility;
+        });
       }
     </script>
   </body>
