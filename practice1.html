@@ -47,12 +47,77 @@
       .pink {
         color: deeppink;
       }
+
+      .purple {
+        color: purple;
+      }
     </style>
   </head>
   <body>
+    <input type="text" />
     <h1 id="header">JavaScript In The Web!</h1>
+    <h2>Sub Header</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
+      facilis officiis voluptates? Quae, dicta? Vel fugit numquam, reiciendis
+      nemo sit, ipsam eaque esse debitis nisi commodi tempora quidem? Similique,
+      sunt?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
+      facilis officiis voluptates? Quae, dicta? Vel fugit numquam, reiciendis
+      nemo sit, ipsam eaque esse debitis nisi commodi tempora quidem? Similique,
+      sunt?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
+      facilis officiis voluptates? Quae, dicta? Vel fugit numquam, reiciendis
+      nemo sit, ipsam eaque esse debitis nisi commodi tempora quidem? Similique,
+      sunt?
+    </p>
 
-    <form action="" id="form" autocomplete="off">
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      let element = $('h2');
+      element.html('New H2');
+
+      let everything = $('h1,p').addClass('purple');
+
+      let currentHeaderFontSize = $('#header').css('font-size');
+
+      $('#header').css('font-size', '100px');
+
+      $('input').keyup(function() {
+        $('h2').html($('input').val());
+      });
+
+      $('input, h1, h2, p').each(function(i, value) {
+        console.log(value.innerHTML);
+      });
+
+      // console.log(currentHeaderFontSize);
+    </script>
+  </body>
+</html>
+
+<!-- event listener code
+let element = document.getElementById('main'); // console.log(element);
+element.addEventListener('click', function() { console.log('Clicked'); });
+element.addEventListener('mouseover', function() { console.log('mouse over');
+}); element.addEventListener('mouseleave', function() { console.log('mouse
+leave'); }); element.addEventListener('input', function() { console.log('input
+changed'); }); document .getElementById('form') .addEventListener('submit',
+function(event) { let submit = confirm('Are you sure you want to submit the
+form?'); if (!submit) return event.preventDefault(); else console.log('form
+submitted'); }); function inputChanged() { console.log('input'); } -->
+
+<!-- HTML manipulation
+
+  <form action="" id="form" autocomplete="off">
       <input type="text" placeholder="Type here" id="textInput" />
       <select id="dropdown">
         <option value="" hidden selected disabled>Theme</option>
@@ -62,8 +127,8 @@
       </select>
     </form>
 
-    <script type="text/javascript">
-      let header = document.getElementById('header');
+    
+let header = document.getElementById('header');
       let textInput = document.getElementById('textInput');
       let dropdown = document.getElementById('dropdown');
 
@@ -80,18 +145,4 @@
         //header.className = value;
         header.classList = '';
         header.classList.add(value);
-      });
-    </script>
-  </body>
-</html>
-
-<!-- event listener code
-let element = document.getElementById('main'); // console.log(element);
-element.addEventListener('click', function() { console.log('Clicked'); });
-element.addEventListener('mouseover', function() { console.log('mouse over');
-}); element.addEventListener('mouseleave', function() { console.log('mouse
-leave'); }); element.addEventListener('input', function() { console.log('input
-changed'); }); document .getElementById('form') .addEventListener('submit',
-function(event) { let submit = confirm('Are you sure you want to submit the
-form?'); if (!submit) return event.preventDefault(); else console.log('form
-submitted'); }); function inputChanged() { console.log('input'); } -->
+      }); -->
