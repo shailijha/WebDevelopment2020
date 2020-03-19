@@ -14,7 +14,8 @@
 
       body,
       button,
-      input {
+      input,
+      select {
         font-family: 'Oswald', sans-serif;
       }
 
@@ -27,58 +28,70 @@
         user-select: none;
       }
 
-      input {
+      input,
+      select {
         padding: 14px;
         padding-right: 320px;
         border: 1px solid rgba(45, 45, 45, 0.3);
         font-size: 32px;
+        height: 58px;
+        box-sizing: content-box;
+      }
+
+      .blue {
+        color: blue;
+      }
+      .violet {
+        color: darkviolet;
+      }
+      .pink {
+        color: deeppink;
       }
     </style>
   </head>
   <body>
-    <!-- <h1 id="main">JavaScript In The Web!</h1> -->
+    <h1 id="header">JavaScript In The Web!</h1>
 
     <form action="" id="form" autocomplete="off">
-      <input
-        type="text"
-        placeholder="Type here"
-        id="main"
-        oninput="inputChanged()"
-      />
+      <input type="text" placeholder="Type here" id="textInput" />
+      <select id="dropdown">
+        <option value="" hidden selected disabled>Theme</option>
+        <option value="blue">Blue</option>
+        <option value="violet">Violet</option>
+        <option value="pink">Pink</option>
+      </select>
     </form>
 
     <script type="text/javascript">
-      // let element = document.getElementById('main');
+      let header = document.getElementById('header');
+      let textInput = document.getElementById('textInput');
+      let dropdown = document.getElementById('dropdown');
 
-      // // console.log(element);
+      textInput.addEventListener('input', function() {
+        let value = textInput.value;
+        console.log(value);
+        header.innerText = value;
+        document.title = value;
+      });
 
-      // element.addEventListener('click', function() {
-      //   console.log('Clicked');
-      // });
-
-      // element.addEventListener('mouseover', function() {
-      //   console.log('mouse over');
-      // });
-
-      // element.addEventListener('mouseleave', function() {
-      //   console.log('mouse leave');
-      // });
-
-      // element.addEventListener('input', function() {
-      //   console.log('input changed');
-      // });
-
-      document
-        .getElementById('form')
-        .addEventListener('submit', function(event) {
-          let submit = confirm('Are you sure you want to submit the form?');
-          if (!submit) return event.preventDefault();
-          else console.log('form submitted');
-        });
-
-      function inputChanged() {
-        console.log('input');
-      }
+      dropdown.addEventListener('change', function() {
+        let value = dropdown.value;
+        console.log(value);
+        //header.className = value;
+        header.classList = '';
+        header.classList.add(value);
+      });
     </script>
   </body>
 </html>
+
+<!-- event listener code
+let element = document.getElementById('main'); // console.log(element);
+element.addEventListener('click', function() { console.log('Clicked'); });
+element.addEventListener('mouseover', function() { console.log('mouse over');
+}); element.addEventListener('mouseleave', function() { console.log('mouse
+leave'); }); element.addEventListener('input', function() { console.log('input
+changed'); }); document .getElementById('form') .addEventListener('submit',
+function(event) { let submit = confirm('Are you sure you want to submit the
+form?'); if (!submit) return event.preventDefault(); else console.log('form
+submitted'); }); function inputChanged() { console.log('input'); } -->
