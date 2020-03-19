@@ -21,39 +21,63 @@
       body {
         margin: 80px 160px 0;
       }
+
+      h1 {
+        cursor: default;
+        user-select: none;
+      }
+
+      input {
+        padding: 14px;
+        padding-right: 320px;
+        border: 1px solid rgba(45, 45, 45, 0.3);
+        font-size: 32px;
+      }
     </style>
   </head>
   <body>
-    <h1>JavaScript In The Web!</h1>
-    <h1 class="theme">JavaScript In The Web!!</h1>
-    <h1 class="theme">JavaScript In The Web!!!</h1>
+    <!-- <h1 id="main">JavaScript In The Web!</h1> -->
 
-    <h2 class="warning">JavaScript!</h2>
-    <h2 id="footer-header">JavaScript!!</h2>
-
-    <button type="button" name="button" onclick="toggleDisplay()">
-      Toggle Display
-    </button>
+    <form action="" id="form" autocomplete="off">
+      <input
+        type="text"
+        placeholder="Type here"
+        id="main"
+        oninput="inputChanged()"
+      />
+    </form>
 
     <script type="text/javascript">
-      let isVisible = true;
+      // let element = document.getElementById('main');
 
-      let elements = document.querySelectorAll('.theme, h2');
+      // // console.log(element);
 
-      //console.log(typeof elements);
-      console.log(elements);
-      elements = Array.from(elements);
-      console.log(elements);
+      // element.addEventListener('click', function() {
+      //   console.log('Clicked');
+      // });
 
-      function toggleDisplay() {
-        isVisible = !isVisible;
+      // element.addEventListener('mouseover', function() {
+      //   console.log('mouse over');
+      // });
 
-        let visibility = isVisible ? 'visible' : 'hidden';
+      // element.addEventListener('mouseleave', function() {
+      //   console.log('mouse leave');
+      // });
 
-        elements.forEach((element, idx) => {
-          //console.log(element, idx);
-          element.style.visibility = visibility;
+      // element.addEventListener('input', function() {
+      //   console.log('input changed');
+      // });
+
+      document
+        .getElementById('form')
+        .addEventListener('submit', function(event) {
+          let submit = confirm('Are you sure you want to submit the form?');
+          if (!submit) return event.preventDefault();
+          else console.log('form submitted');
         });
+
+      function inputChanged() {
+        console.log('input');
       }
     </script>
   </body>
